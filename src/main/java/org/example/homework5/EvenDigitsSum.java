@@ -9,12 +9,12 @@ public class EvenDigitsSum {
         int sum = 0;
 
         if (digit > 0) {
-            int[] array = new int[String.valueOf(digit).length()];
-            for (int i = 0; i < array.length; i++) {
-                array[i] = digit % 10;
+            int numDigits = String.valueOf(digit).length();
+            for (int i = 0; i < numDigits; i++) {
+                int currentDigit = digit % 10;
                 digit /= 10;
-                if(array[i] % 2 == 0)
-                    sum = sum + array[i];
+                if(currentDigit % 2 == 0)
+                    sum = sum + currentDigit;
             }
         }
         else sum = -1;

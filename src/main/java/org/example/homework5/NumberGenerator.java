@@ -6,23 +6,19 @@ public class NumberGenerator {
 
     public static void main(String[] args) {
         Random random = new Random();
-        int[] num = new int[101];
+        boolean[] num = new boolean[101];
         int sum = 0;
         int counter = 0;
 
-        for (int i = 0; i < num.length; i++) {
-            num[i] = 1000;
-        }
-
-        while (true) {
+        for ( ; ; ) {
             int randomNumber = random.nextInt(101);
             System.out.println("Generated number: " + randomNumber);
             sum = sum + randomNumber;
             counter++;
-            if (num[randomNumber] == randomNumber) {
+            if (num[randomNumber] == true) {
                 break;
             }
-            num[randomNumber] = randomNumber;
+            num[randomNumber] = true;
         }
 
         System.out.println("Sum of all generated numbers: " + sum);
