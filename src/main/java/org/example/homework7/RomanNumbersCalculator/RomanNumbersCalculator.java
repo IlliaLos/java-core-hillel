@@ -3,6 +3,7 @@ package org.example.homework7.RomanNumbersCalculator;
 public class RomanNumbersCalculator {
 
     public static void main(String[] args) {
+
         Calculator calculator = new Calculator();
 
         RomanNumber num1 = RomanNumber.L;

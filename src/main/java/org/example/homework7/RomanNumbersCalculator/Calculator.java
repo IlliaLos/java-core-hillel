@@ -24,6 +24,7 @@ public class Calculator {
                 System.out.println("Error");
             }
         }
+
         return Result;
     }
 }

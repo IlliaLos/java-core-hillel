@@ -24,7 +24,6 @@ public class StringManipulator {
                 }
             }
         }
-
         return builder.toString();
     }
 }

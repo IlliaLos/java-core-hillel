@@ -1,6 +1,7 @@
 package org.example.homework7.RomanNumbersCalculator;
 
 public enum RomanNumber {
+
     M(1000),
     D(500),
     C(100),
