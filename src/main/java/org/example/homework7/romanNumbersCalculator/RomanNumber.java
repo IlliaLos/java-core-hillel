@@ -1,4 +1,4 @@
-package org.example.homework7;
+package org.example.homework7.romanNumbersCalculator;
 
 public enum RomanNumber {
     M(1000),

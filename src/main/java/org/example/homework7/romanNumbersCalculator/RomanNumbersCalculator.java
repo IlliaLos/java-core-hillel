@@ -1,10 +1,9 @@
-package org.example.homework7;
+package org.example.homework7.romanNumbersCalculator;
 
 public class RomanNumbersCalculator {
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-
         RomanNumber num1 = RomanNumber.L;
         RomanNumber num2 = RomanNumber.V;
 
