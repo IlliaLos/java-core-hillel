@@ -14,10 +14,17 @@ public class StringManipulator {
     }
 
     private static String removeCharacters(String initialString, char[] charsToRemove) {
+        StringBuilder builder = new StringBuilder(initialString);
 
-        for (int i = 0; i < charsToRemove.length; i++)
-            initialString = initialString.replaceAll(String.valueOf(charsToRemove[i]), "");
+        for (char value : charsToRemove){
+            for (int i = 0; i < builder.length(); i++) {
+                if (builder.charAt(i) == value) {
+                    builder.deleteCharAt(i);
+                    i--;
+                }
+            }
+        }
 
-        return initialString;
+        return builder.toString();
     }
 }
