@@ -1,4 +1,4 @@
-package org.example.homework7;
+package org.example.homework7.RomanNumbersCalculator;
 
 public class RomanNumbersCalculator {
 
