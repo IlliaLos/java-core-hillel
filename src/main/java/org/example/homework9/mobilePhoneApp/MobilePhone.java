@@ -13,16 +13,18 @@ public class MobilePhone {
     }
 
     public boolean addNewContact(Contact contact) {
-        return myContacts.add(contact);
+        if(findContact(contact) >= 0 )
+            return myContacts.add(contact);
+        return false;
     }
 
     public boolean updateContact(Contact oldContact, Contact newContact) {
         int index = findContact(oldContact);
         if (index >= 0) {
-            myContacts.add(index, newContact);
+            myContacts.set(index, newContact);
             return true;
         }
-        else return false;
+        return false;
     }
 
     public boolean removeContact(Contact contact) {
@@ -33,19 +35,19 @@ public class MobilePhone {
         return myContacts.indexOf(contact);
     }
 
-    public int findContact(String contactString) {
+    public int findContact(String contactName) {
         for (Contact contact : myContacts) {
-            if (contact.getName().equals(contactString))
+            if (contact.getName().equals(contactName))
                 return myContacts.indexOf(contact);
         }
-        return 0;
+        return -1;
     }
 
-    public Contact queryContact(String contactString) {
-        if (findContact(contactString) > 0) {
-            return myContacts.get(findContact(contactString));
+    public Contact queryContact(String contactName) {
+        if (findContact(contactName) > 0) {
+            return myContacts.get(findContact(contactName));
         }
-        else return null;
+        return null;
     }
 
     public void printContacts() {

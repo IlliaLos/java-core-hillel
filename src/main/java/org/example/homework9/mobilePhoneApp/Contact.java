@@ -19,7 +19,6 @@ public class Contact {
     }
 
     public static Contact createContact(String name, String phoneNumber) {
-        var contact = new Contact(name, phoneNumber);
-        return contact;
+        return new Contact(name, phoneNumber);
     }
 }
