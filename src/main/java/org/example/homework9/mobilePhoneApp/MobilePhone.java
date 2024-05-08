@@ -13,9 +13,10 @@ public class MobilePhone {
     }
 
     public boolean addNewContact(Contact contact) {
-        if(findContact(contact) >= 0 )
-            return myContacts.add(contact);
-        return false;
+        if(findContact(contact.getName()) >= 0 )
+            return false;
+        myContacts.add(contact);
+        return true;
     }
 
     public boolean updateContact(Contact oldContact, Contact newContact) {
@@ -28,7 +29,11 @@ public class MobilePhone {
     }
 
     public boolean removeContact(Contact contact) {
-        return myContacts.remove(contact);
+        if(findContact(contact) >= 0) {
+            myContacts.remove(contact);
+            return true;
+        }
+        return false;
     }
 
     public int findContact(Contact contact) {
@@ -44,17 +49,16 @@ public class MobilePhone {
     }
 
     public Contact queryContact(String contactName) {
-        if (findContact(contactName) > 0) {
+        if (findContact(contactName) >= 0) {
             return myContacts.get(findContact(contactName));
         }
         return null;
     }
 
     public void printContacts() {
-        for (Contact contact : myContacts) {
-            int i = 1;
-            System.out.println(i + contact.getName() + " -> " + contact.getPhoneNumber());
-            i++;
+        System.out.println("Contact List:");
+        for (int i = 0; i < myContacts.size(); i++) {
+            System.out.println((i + 1) + ". " + myContacts.get(i).getName() + " -> " + myContacts.get(i).getPhoneNumber());
         }
     }
 }
