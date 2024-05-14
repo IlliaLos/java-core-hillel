@@ -7,47 +7,48 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-    public class EmployeeProcessing {
-        record Employee(String firstName, String lastName, String hireDate) {
-        }
+public class EmployeeProcessing {
 
-        public static void main(String[] args) {
-            Employee e1 = new Employee("Мінні", "Маус", "01/02/2015");
-            Employee e2 = new Employee("Міккі", "Маус", "05/08/2000");
-            Employee e3 = new Employee("Даффі", "Дак", "11/02/2011");
-            Employee e4 = new Employee("Дейзі", "Дак", "05/03/2013");
-            Employee e5 = new Employee("Гуфі", "Дог", "23/07/2020");
+    public static void main(String[] args) {
+        Employee e1 = new Employee("Minnie", "Mouse", "01/02/2015");
+        Employee e2 = new Employee("Mickey", "Mouse", "05/08/2000");
+        Employee e3 = new Employee("Daffy", "Duck", "11/02/2011");
+        Employee e4 = new Employee("Daisy", "Duck", "05/03/2013");
+        Employee e5 = new Employee("Goofy", "Dog", "23/07/2020");
 
-            List<Employee> list = new ArrayList<>(Arrays.asList(e1, e2, e3, e4, e5));
-            printOrderedList(list, "ім'я");
-            System.out.println();
-            printOrderedList(list, "рік");
+        List<Employee> list = new ArrayList<>(Arrays.asList(e1, e2, e3, e4, e5));
 
-            Collections.sort(list, new Comparator<Employee>() {
+        printOrderedList(list, "name");
+        System.out.println();
+        printOrderedList(list, "year");
+    }
+
+    public static void printOrderedList(List<Employee> employees, String sortBy) {
+        if (sortBy.equals("name")) {
+            Collections.sort(employees, new Comparator<Employee>() {
                 @Override
                 public int compare(Employee emp1, Employee emp2) {
-                    String fullName1 = emp1.firstName() + " " + emp1.lastName();
-                    String fullName2 = emp2.firstName() + " " + emp2.lastName();
-                    return fullName1.compareTo(fullName2);
+                    return emp1.firstName().compareTo(emp2.firstName());
                 }
             });
-
-            Collections.sort(list, new Comparator<Employee>() {
+        } else if (sortBy.equals("year")) {
+            Collections.sort(employees, new Comparator<Employee>() {
                 @Override
                 public int compare(Employee emp1, Employee emp2) {
-                    int yearsWorked1 = LocalDate.now().getYear() - Integer.parseInt(emp1.hireDate().split("/")[2]);
-                    int yearsWorked2 = LocalDate.now().getYear() - Integer.parseInt(emp2.hireDate().split("/")[2]);
-                    return Integer.compare(yearsWorked1, yearsWorked2);
+                    return Integer.compare(getYearsWorked(emp1), getYearsWorked(emp2));
                 }
             });
-
         }
 
-        private static void printOrderedList(List<Employee> employees, String sortBy) {
-            System.out.println("Відсортовано за " + sortBy + ":");
-            for (Employee emp : employees) {
-                int yearsWorked = LocalDate.now().getYear() - Integer.parseInt(emp.hireDate().split("/")[2]);
-                System.out.println(emp.firstName() + " " + emp.lastName() + " (" + yearsWorked + " років)");
-            }
+        for (Employee emp : employees) {
+            System.out.println("Full Name: " + emp.firstName() + " " + emp.lastName() +
+                    ", Years Worked: " + getYearsWorked(emp));
         }
     }
+
+    private static int getYearsWorked(Employee emp) {
+        int currentYear = LocalDate.now().getYear();
+        int hireYear = Integer.parseInt(emp.hireDate().split("/")[2]);
+        return currentYear - hireYear;
+    }
+}
