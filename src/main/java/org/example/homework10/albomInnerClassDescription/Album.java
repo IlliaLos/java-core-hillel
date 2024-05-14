@@ -37,7 +37,7 @@ public class Album {
 
         public Song findSongByTrackNumber (int trackNumber){
             int index = trackNumber - 1;
-            if(songs.size() >= 0 && songs.size() >= index)
+            if(index >= 0 && songs.size() >= index)
                 return songs.get(index);
             return null;
         }
