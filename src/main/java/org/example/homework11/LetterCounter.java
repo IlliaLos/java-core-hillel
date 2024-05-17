@@ -11,11 +11,11 @@ public class LetterCounter {
 
         char[] charArray = inputString.toCharArray();
 
-        for (int i = 0; i < charArray.length; i++) {
-            if(charMap.containsKey(charArray[i])){
-                charMap.put(charArray[i], charMap.get(charArray[i]) + 1);
+        for (char c : charArray) {
+            if(charMap.containsKey(c)){
+                charMap.put(c, charMap.get(c) + 1);
             }
-            else charMap.put(charArray[i], 1);
+            else charMap.put(c, 1);
         }
 
         for(Map.Entry<Character, Integer> entry : charMap.entrySet()){
