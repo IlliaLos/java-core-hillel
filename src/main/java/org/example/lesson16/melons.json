@@ -1,0 +1,42 @@
+[
+  {
+    "type": "Watermelon",
+    "weight": 1000,
+    "origin": "USA"
+  },
+  {
+    "type": "Super watermelon",
+    "weight": 3000,
+    "origin": "USA"
+  },
+  {
+    "type": "Honeydew",
+    "weight": 899,
+    "origin": "Mexico"
+  },
+  {
+    "type": "Cantaloupe",
+    "weight": 1200,
+    "origin": "Spain"
+  },
+  {
+    "type": "Gac",
+    "weight": 2000,
+    "origin": "Argentina"
+  },
+  {
+    "type": "Apollo",
+    "weight": 1700,
+    "origin": "Brazil"
+  },
+  {
+    "type": "Apollo",
+    "weight": 1700,
+    "origin": "Brazil"
+  },
+  {
+    "type": "Kherson",
+    "weight": 1700,
+    "origin": null
+  }
+]
